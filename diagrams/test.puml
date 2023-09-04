@@ -1,0 +1,33 @@
+@startuml
+'' Assign colors to a style name.
+'!define STYLE_LINE #Green
+'!define STYLE_BGC #ddd
+'
+'' Load preset styles.
+'!define STYLEPATH /Users/nicholasromans/Library/Application Support/JetBrains/IntelliJIdea2020.2/scratches/_puml-includes
+'!include STYLEPATH/stylesheet.iuml
+'
+'skinparam {
+'    DPI 200
+'    ParticipantBackgroundColor #eee
+'    SequenceGroupBodyBackgroundColor #fff
+'}
+
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+    customer -- (checkout)
+    (checkout) .> (payment) : include
+    (help) .> (checkout) : extends
+    (checkout) -- clerk
+}
+
+rectangle checkout2 {
+    someone -- (checkout)
+    (checkout) .> (payment) : include
+    (help) .> (checkout) : extends
+    (checkout) -- clerk
+}
+@enduml

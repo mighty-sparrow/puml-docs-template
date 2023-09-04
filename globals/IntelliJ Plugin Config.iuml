@@ -1,0 +1,61 @@
+'''
+' Add this to the IntelliJ PlantUML
+' Settings for the 'PlantUML Config' field.
+'''
+!define STYLE_ACCENT #ccc
+!define STYLE_LINE #333
+!define STYLE_BGC #FFF
+!define STYLE_FGC #000
+
+skinparam {
+
+    ' Global Options
+    DPI 100
+    Shadowing false
+    DefaultFontName Roboto Condensed
+    DefaultMonospacedFontName Inconsolata
+    DefaultFontColor STYLE_FGC
+
+    ArrowColor STYLE_LINE
+    ActivityBorderColor STYLE_ACCENT
+    ActivityDiamondBorderColor STYLE_ACCENT
+    ActorBorderColor STYLE_ACCENT
+    AgentBorderColor STYLE_ACCENT
+    ArtifactBorderColor STYLE_ACCENT
+    BoundaryBorderColor STYLE_ACCENT
+    ClassBorderColor STYLE_ACCENT
+    CloudBorderColor STYLE_ACCENT
+    CollectionsBorderColor STYLE_ACCENT
+    ComponentBorderColor STYLE_ACCENT
+    ControlBorderColor STYLE_ACCENT
+    DatabaseBorderColor STYLE_ACCENT
+    EntityBorderColor STYLE_ACCENT
+    FileBorderColor STYLE_ACCENT
+    FolderBorderColor STYLE_ACCENT
+    FrameBorderColor STYLE_ACCENT
+    InterfaceBorderColor STYLE_ACCENT
+    LegendBorderColor STYLE_ACCENT
+    NoteBorderColor STYLE_ACCENT
+    ObjectBorderColor STYLE_ACCENT
+    PackageBorderColor STYLE_ACCENT
+    ParticipantBorderColor STYLE_ACCENT
+    PartitionBorderColor STYLE_ACCENT
+    QueueBorderColor STYLE_ACCENT
+    RectangleBorderColor STYLE_ACCENT
+    SequenceBoxBorderColor STYLE_ACCENT
+    SequenceDividerBorderColor STYLE_ACCENT
+    SequenceGroupBorderColor STYLE_ACCENT
+    SequenceLifeLineBorderColor STYLE_ACCENT
+    SequenceReferenceBorderColor STYLE_ACCENT
+    StackBorderColor STYLE_ACCENT
+    StateBorderColor STYLE_ACCENT
+    StorageBorderColor STYLE_ACCENT
+    SwimlaneBorderColor STYLE_ACCENT
+    UsecaseBorderColor STYLE_ACCENT
+
+    ActorBackgroundColor STYLE_BGC
+    CollectionsBackgroundColor STYLE_BGC
+    DatabaseBackgroundColor STYLE_BGC
+    ParticipantBackgroundColor STYLE_BGC
+    NoteBackgroundColor #LightYellow
+}

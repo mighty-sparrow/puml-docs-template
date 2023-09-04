@@ -1,0 +1,29 @@
+@startuml
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/exclamation_triangle.puml
+!include FONTAWESOME/exclamation_circle.puml
+!define MATERIAL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/material
+!include MATERIAL/info.puml
+!include MATERIAL/check_circle.puml
+
+!procedure noteOver($overWhat, $title="Note", $note="Default Contents")
+note over $overWhat #GreenYellow: <color:#009900><b><size:15>$title</size></b>\n$note
+!endprocedure
+
+!procedure infoOver($overWhat, $title="Info", $note="Default Contents")
+rnote over $overWhat #LightBlue: <$info*.35,color:#000066> <color:#000066><b><size:15>$title</size></b>\n$note
+!endprocedure
+
+!procedure goodOver($overWhat, $title="Good", $note="Default Contents")
+rnote over $overWhat #LightGreen: <$check_circle*.35,color:DarkGreen> <color:DarkGreen><b><size:15>$title</size></b>\n$note
+!endprocedure
+
+!procedure warnOver($overWhat, $title="Warning", $note="Default Contents")
+hnote over $overWhat #LightYellow: <$exclamation_triangle*.35,color:Darkorange> <color:Darkorange><b><size:15>$title</size></b>\n$note
+!endprocedure
+
+!procedure errorOver($overWhat, $title="Error",$note="Default Contents")
+hnote over $overWhat #Pink: <$exclamation_circle*.35,color:DarkRed> <color:DarkRed><b><size:15>$title</size></b>\n$note
+!endprocedure
+
+@enduml

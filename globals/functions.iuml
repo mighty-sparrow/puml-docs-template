@@ -1,0 +1,8 @@
+@startuml
+!procedure tmNoteOver($overWhat, $contents="Default Contents")
+note over $overWhat #Magenta
+  $contents
+end note
+!endprocedure
+
+@enduml

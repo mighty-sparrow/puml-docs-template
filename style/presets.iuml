@@ -1,0 +1,70 @@
+@startuml
+
+' Preset Styles by Jeriel Jan
+
+' Preset: Monochrome
+!define STYLE_DEFAULT_ACCENT #999
+!define STYLE_DEFAULT_BGC #EEE
+!define STYLE_DEFAULT_FGC #000
+!define STYLE_DEFAULT_LINE #333
+!define STYLE_DEFAULT_NOTE #LightYellow
+!define STYLE_DEFAULT_NOTE_FGC #333
+
+' Preset: Material Light Blue (200)
+!define STYLE_LIGHT_ACCENT #81D4FA
+!define STYLE_LIGHT_BGC #FFF
+!define STYLE_LIGHT_FGC #000
+!define STYLE_LIGHT_LINE #CCC
+!define STYLE_LIGHT_NOTE #LightSkyBlue
+!define STYLE_LIGHT_NOTE_FGC #Navy
+
+' Preset: Material Light Blue (800)
+!define STYLE_DARK_ACCENT #0277BD
+!define STYLE_DARK_BGC #FFF
+!define STYLE_DARK_FGC #000
+!define STYLE_DARK_LINE #333
+!define STYLE_DARK_NOTE #DarkBlue
+!define STYLE_DARK_NOTE_FGC #LightGray
+
+' Preset: Material Light Blue (800)
+!define STYLE_MIDNIGHT_ACCENT #0277BD
+!define STYLE_MIDNIGHT_BGC #000
+!define STYLE_MIDNIGHT_FGC #FFF
+!define STYLE_MIDNIGHT_LINE #336699
+!define STYLE_MIDNIGHT_NOTE #LightSKyBlue
+!define STYLE_MIDNIGHT_NOTE_FGC #Navy
+
+' Assign a THEME from your PUML file instead of individual styles.
+' Options are: [ DEFAULT | LIGHT | DARK | MIDNIGHT ]
+!ifdef STYLE_THEME
+    !if %not(%variable_exists("STYLE_ACCENT"))
+        %set_variable_value("ACCENT","STYLE_" + %get_variable_value("STYLE_THEME") + "_ACCENT")
+        !define STYLE_ACCENT %get_variable_value(ACCENT)
+    !endif
+    !if %not(%variable_exists("STYLE_BGC"))
+        %set_variable_value("BGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_BGC")
+        !define STYLE_BGC %get_variable_value(BGC)
+    !endif
+    !if %not(%variable_exists("STYLE_FGC"))
+        %set_variable_value("FGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_FGC")
+        !define STYLE_FGC %get_variable_value(FGC)
+    !endif
+    !if %not(%variable_exists("STYLE_LINE"))
+        %set_variable_value("LINE","STYLE_" + %get_variable_value("STYLE_THEME") + "_LINE")
+        !define STYLE_LINE %get_variable_value(LINE)
+    !endif
+    !if %not(%variable_exists("STYLE_NOTE"))
+        %set_variable_value("NOTE","STYLE_" + %get_variable_value("STYLE_THEME") + "_NOTE")
+        !define STYLE_NOTE %get_variable_value(NOTE)
+    !endif
+    !if %not(%variable_exists("STYLE_NOTE_FGC"))
+        %set_variable_value("NOTE_FGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_NOTE_FGC")
+        !define STYLE_NOTE_FGC %get_variable_value(NOTE_FGC)
+    !endif
+!endif
+
+skinparam {
+    ' This field left intentionally blank.
+}
+
+@enduml

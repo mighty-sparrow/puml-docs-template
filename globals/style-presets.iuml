@@ -1,0 +1,54 @@
+@startuml
+
+' Preset Styles by Jeriel Jan
+
+' Preset: Monochrome
+!define STYLE_DEFAULT_ACCENT #999
+!define STYLE_DEFAULT_BGC #EEE
+!define STYLE_DEFAULT_FGC #000
+!define STYLE_DEFAULT_LINE #333
+
+' Preset: Material Light Blue (200)
+!define STYLE_LIGHT_ACCENT #81D4FA
+!define STYLE_LIGHT_BGC #FFF
+!define STYLE_LIGHT_FGC #000
+!define STYLE_LIGHT_LINE #CCC
+
+' Preset: Material Light Blue (800)
+!define STYLE_DARK_ACCENT #0277BD
+!define STYLE_DARK_BGC #FFF
+!define STYLE_DARK_FGC #000
+!define STYLE_DARK_LINE #333
+
+' Preset: Material Light Blue (800)
+!define STYLE_MIDNIGHT_ACCENT #0277BD
+!define STYLE_MIDNIGHT_BGC #000
+!define STYLE_MIDNIGHT_FGC #FFF
+!define STYLE_MIDNIGHT_LINE #336699
+
+' Assign a THEME from your PUML file instead of individual styles.
+' Options are: [ DEFAULT | LIGHT | DARK | MIDNIGHT ]
+!ifdef STYLE_THEME
+    !if %not(%variable_exists("STYLE_ACCENT"))
+        %set_variable_value("ACCENT","STYLE_" + %get_variable_value("STYLE_THEME") + "_ACCENT")
+        !define STYLE_ACCENT %get_variable_value(ACCENT)
+    !endif
+    !if %not(%variable_exists("STYLE_BGC"))
+        %set_variable_value("BGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_BGC")
+        !define STYLE_BGC %get_variable_value(BGC)
+    !endif
+    !if %not(%variable_exists("STYLE_FGC"))
+        %set_variable_value("FGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_FGC")
+        !define STYLE_FGC %get_variable_value(FGC)
+    !endif
+    !if %not(%variable_exists("STYLE_LINE"))
+        %set_variable_value("LINE","STYLE_" + %get_variable_value("STYLE_THEME") + "_LINE")
+        !define STYLE_LINE %get_variable_value(LINE)
+    !endif
+!endif
+
+skinparam {
+    ' This field left intentionally blank.
+}
+
+@enduml
