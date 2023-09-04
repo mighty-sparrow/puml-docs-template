@@ -1,0 +1,16 @@
+@startuml
+
+skinparam{
+
+    ' Global Options
+    ' DPI 200
+    Shadowing false
+    DefaultFontName Roboto Condensed
+    DefaultFontName Tw Cen MT
+    ' DefaultMonospacedFontName Inconsolata
+    
+    roundcorner 8
+    'Monochrome true
+    NoteFontName Roboto Condensed
+}
+@enduml

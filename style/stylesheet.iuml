@@ -32,13 +32,6 @@
 ' See Custom Style section below to override items here.
 
 skinparam {
-
-    ' Global Options
-    ' DPI 200
-    Shadowing false
-    DefaultFontName Roboto Condensed
-    DefaultFontName Tw Cen MT
-'    DefaultMonospacedFontName Inconsolata
     DefaultFontColor STYLE_FGC
 
     ' Styles - Borders
@@ -144,49 +137,10 @@ skinparam {
     ' CUSTOM STYLE
     ' All items below can be safely commented out.
     ' This will override the options listed above.
-    roundcorner 8
-    'Monochrome true
 
-    NoteFontName Roboto Condensed
     'NoteFontStyle Italic
     NoteBackgroundColor STYLE_NOTE
     NoteFontColor STYLE_NOTE_FGC
 
 }
-
-' <style>
-' activityDiagram {
-'   BackgroundColor #33668E
-'   BorderColor #33668E
-'   FontColor #888
-'   FontName arial
-
-'   diamond {
-'     BackgroundColor #ccf
-'     LineColor #00FF00
-'     FontColor green
-'     FontName arial
-'     FontSize 15
-'   }
-'   arrow {
-'     FontColor gold
-'     FontName arial
-'     FontSize 15
-'   }
-'   partition {
-'     LineColor red
-'     FontColor green
-'     RoundCorner 10
-'     BackgroundColor PeachPuff
-'   }
-'   note {
-'     FontColor Blue
-'     LineColor Navy
-'     BackgroundColor #ccf
-'   }
-' }
-' document {
-'    BackgroundColor transparent
-' }
-' </style>
 @enduml
