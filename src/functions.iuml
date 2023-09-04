@@ -1,10 +1,8 @@
 @startuml
-!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
-!include FONTAWESOME/exclamation_triangle.puml
-!include FONTAWESOME/exclamation_circle.puml
-!define MATERIAL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/material
-!include MATERIAL/info.puml
-!include MATERIAL/check_circle.puml
+!include <tupadr3/font-awesome-5/exclamation_triangle>
+!include <tupadr3/font-awesome-5/exclamation_circle>
+!include <tupadr3/material/info>
+!include <tupadr3/material/check_circle>
 
 !procedure noteOver($overWhat, $title="Note", $note="Default Contents")
 note over $overWhat #GreenYellow: <color:#009900><b><size:15>$title</size></b>\n$note
