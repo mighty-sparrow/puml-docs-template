@@ -1,0 +1,13 @@
+#!/bin/zsh
+# Pass in a path to the directory where the hard link should be created.
+. $HOME/Terminal/profile.sh;
+
+if [[ -n "$@" && -d "$@" ]]; then
+    for file in *; do
+    printf "${txtwht}ln ${txtblu}-Ff ${txtgrn}$PWD/$file ${txtpur}$@
+";
+    done;
+else
+    echo "Missing a parameter."
+fi;
+exit 0;
