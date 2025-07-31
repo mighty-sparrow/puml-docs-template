@@ -1,5 +1,6 @@
 @startuml
-!define ip /Volumes/SRC/plantuml-stdlib/material
+!$rootPath = ..
+!define ip $rootPath/plantuml-stdlib/material
 
 !include ip/access_point.puml
 !include ip/access_point_network.puml
