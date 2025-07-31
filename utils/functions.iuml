@@ -1,0 +1,80 @@
+@startuml
+
+' These functions are similar to the note, info, etc. functions in PlantUML,
+' but they allow you to specify the object to draw the note over (the $overWhat parameter)
+' a `participant`.  This is useful when you have a complex diagram and you want to
+' draw a note over a specific object, but you don't want to have to specify the
+' style of the note manually.
+!startsub MAIN
+!$colorError = DarkGreen
+!$colorWarn = %lighten($colorError, 28)
+!$colorGood = "#009900"
+
+!include <tupadr3/font-awesome-5/exclamation_triangle>
+!include <tupadr3/font-awesome-5/exclamation_circle>
+!include <tupadr3/font-awesome/question_circle_o>
+!include <tupadr3/material/info>
+!include <tupadr3/material/check_circle>
+
+' Helper function to format note text lines split by the tilde: '~'
+!function $colorSplitLines($txt="Default\nText",$color="")
+    !$splStr = "~"
+    !$list = %splitstr($txt, $splStr)
+    !$retVal = ""
+    !foreach $item in $list
+    !$retVal = $retVal + "<font color="+$color+">"+$item+"</font>" + %newline()
+    !endfor
+    !return $retVal
+!endfunction
+
+!procedure $noteOver($overWhat, $title="Note", $note="Default Contents")
+rnote over $overWhat #LemonChiffon
+<color:#Goldenrod><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=Goldenrod)
+end rnote
+!endprocedure
+!procedure $questionOver($overWhat, $title="Question", $note="Default Contents")
+rnote over $overWhat #Plum
+<$question_circle_o*.3,color:Indigo> <color:#Indigo><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=Indigo)
+end rnote
+!endprocedure
+
+!procedure $infoOver($overWhat, $title="Info", $note="Default Contents")
+rnote over $overWhat #LightBlue
+<$info*.25,color:#000066> <color:#000066><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=DarkBlue)
+end rnote
+!endprocedure
+
+!procedure $goodOver($overWhat, $title="Good", $note="Default Contents")
+rnote over $overWhat #LightGreen
+<$check_circle*.25,color:DarkGreen> <color:DarkGreen><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=DarkGreen)
+end rnote
+!endprocedure
+
+!procedure $warnOver($overWhat, $title="Warning", $note="Default Contents")
+hnote over $overWhat #LightYellow
+<$exclamation_triangle*.25,color:Darkorange> <color:Darkorange><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=DarkOrange)
+end hnote
+!endprocedure
+
+!procedure $errorOver($overWhat, $title="Error",$note="Default Contents")
+hnote over $overWhat #Pink
+<$exclamation_circle*.25,color:DarkRed> <color:DarkRed><b><size:10>~~$title~~</size></b>
+$colorSplitLines($txt=$note, $color=DarkRed)
+end hnote
+!endprocedure
+
+!function $titleCase($txt)
+    !$fc = %upper(%substr($txt,0,1))
+    !$sub = %lower(%substr($txt,1))
+    !$result = $fc+$sub
+    ' !log Calling function with "$txt" ("$fc" and "$sub"). The result is "$result"
+    !return $result
+!endfunction
+
+!endsub
+@enduml

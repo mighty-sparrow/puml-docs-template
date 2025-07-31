@@ -1,0 +1,15 @@
+@startuml Templates For Use In Other Diagrams - title
+title Participants For Use In _index.puml
+
+!startsub COMMON_PARTICIPANTS
+
+' Don't forget to add your Exclusion Flags for anything you do not need. (try the shortcut `puml-xf`)
+
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub $rootPath/utils/common.participants.iuml!COMMON_INCLUDES
+!includesub $rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS
+
+!endsub
+@enduml

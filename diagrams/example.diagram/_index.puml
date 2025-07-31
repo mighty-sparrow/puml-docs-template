@@ -1,0 +1,12 @@
+' The text after the `startuml` tag will be the name of the output file when rendered from the command-line.
+@startuml _index.
+title Display Title Here
+footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub ./_participants.iuml!COMMON_PARTICIPANTS
+
+
+
+@enduml
