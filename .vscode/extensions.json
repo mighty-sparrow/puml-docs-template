@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "jebbs.plantuml",
+        "redhat.vscode-yaml",
+        "42crunch.vscode-openapi",
+        "darkriszty.markdown-table-prettify",
+    ]
+}
