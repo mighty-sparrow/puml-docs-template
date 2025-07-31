@@ -1,4 +1,9 @@
 @startuml
+' This file contains styles that can be used to customize the
+' look and feel of your PlantUML diagrams. Within your main
+' PlantUML file, you can define which style to use by setting
+' the STYLE_THEME variable to one of the following options:
+' [ DEFAULT | LIGHT | DARK | MIDNIGHT | NATURAL | NATURAL_DARK | NATURAL_DARK_ALT ]
 
 ' Preset Styles by Jeriel Jan
 
@@ -10,6 +15,30 @@
 !define STYLE_DEFAULT_NOTE #LightYellow
 !define STYLE_DEFAULT_NOTE_FGC #333
 
+' Preset: Natural
+!define STYLE_NATURAL_ACCENT #437c90
+!define STYLE_NATURAL_BGC #eeebd3
+!define STYLE_NATURAL_FGC #575c33
+!define STYLE_NATURAL_LINE #333
+!define STYLE_NATURAL_NOTE #f7c548
+!define STYLE_NATURAL_NOTE_FGC #333
+
+' Preset: Natural Dark
+!define STYLE_NATURAL_DARK_ACCENT #437c90
+!define STYLE_NATURAL_DARK_BGC #575c33
+!define STYLE_NATURAL_DARK_FGC #eeebd3
+!define STYLE_NATURAL_DARK_LINE #eeebd3
+!define STYLE_NATURAL_DARK_NOTE #f7c548
+!define STYLE_NATURAL_DARK_NOTE_FGC #333
+
+' Preset: Natural Dark Alt
+!define STYLE_NATURAL_DARK_ALT_ACCENT #575c33
+!define STYLE_NATURAL_DARK_ALT_BGC #437c90
+!define STYLE_NATURAL_DARK_ALT_FGC #eeebd3
+!define STYLE_NATURAL_DARK_ALT_LINE #eeebd3
+!define STYLE_NATURAL_DARK_ALT_NOTE #f7c548
+!define STYLE_NATURAL_DARK_ALT_NOTE_FGC #333
+
 ' Preset: Material Light Blue (200)
 !define STYLE_LIGHT_ACCENT #81D4FA
 !define STYLE_LIGHT_BGC #FFF
@@ -20,8 +49,8 @@
 
 ' Preset: Material Light Blue (800)
 !define STYLE_DARK_ACCENT #0277BD
-!define STYLE_DARK_BGC #FFF
-!define STYLE_DARK_FGC #000
+!define STYLE_DARK_BGC #000
+!define STYLE_DARK_FGC #FFF
 !define STYLE_DARK_LINE #333
 !define STYLE_DARK_NOTE #DarkBlue
 !define STYLE_DARK_NOTE_FGC #LightGray
@@ -35,7 +64,7 @@
 !define STYLE_MIDNIGHT_NOTE_FGC #Navy
 
 ' Assign a THEME from your PUML file instead of individual styles.
-' Options are: [ DEFAULT | LIGHT | DARK | MIDNIGHT ]
+' Options are: [ DEFAULT | NATURAL | LIGHT | DARK | MIDNIGHT ]
 !ifdef STYLE_THEME
     !if %not(%variable_exists("STYLE_ACCENT"))
         %set_variable_value("ACCENT","STYLE_" + %get_variable_value("STYLE_THEME") + "_ACCENT")

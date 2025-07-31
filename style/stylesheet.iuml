@@ -1,4 +1,8 @@
 @startuml
+' This file is a part of the PlantUML Styling Project. The contents of this
+' define the default color values to use for the various PlantUML elements.
+' The variables are defined in the "presets.iuml" file. The subset of colors
+' used depends on the "STYLE_THEME" selected. The default theme is "DEFAULT".
 
 ' Load preset styles.
 !define STYLEPATH .
@@ -24,15 +28,42 @@
     !define STYLE_NOTE STYLE_DEFAULT_NOTE
 !endif
 !if %not(%variable_exists("STYLE_NOTE_FGC"))
-    !define STYLE_NOTE STYLE_DEFAULT_NOTE_FGC
+    !define STYLE_NOTE_FGC STYLE_DEFAULT_NOTE_FGC
 !endif
 
+' Trying to think ahead and phase out skinparam per the documentation
+<style>
+.participant-not-secure{
+' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
+  BackgroundColor #ffdddd
+}
+.participant-secure{
+' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
+  BackgroundColor #ddffdd
+}
+.participant-question{
+' Setting some generic colors to indicate whether the participant is up for discussion.
+  BackgroundColor #Yellow
+  FontColor #000
+}
+participant{
+    BackgroundColor #ff0000
+    FontColor #fff
+}
+.charcoal-link {
+  HyperlinkColor #333
+}
+.participant-link {
+  HyperlinkColor #000
+}
+</style>
 ' RECOMMENDED STYLE
 ' -=- DO NOT EDIT THIS SECTION. -=-
 ' See Custom Style section below to override items here.
 
 skinparam {
     DefaultFontColor STYLE_FGC
+    NoteFontColor STYLE_NOTE_FGC
 
     ' Styles - Borders
 
@@ -100,7 +131,7 @@ skinparam {
     InterfaceBackgroundColor STYLE_BGC
     LegendBackgroundColor STYLE_BGC
     NodeBackgroundColor STYLE_BGC
-    NoteBackgroundColor STYLE_BGC
+    NoteBackgroundColor STYLE_NOTE
     ObjectBackgroundColor STYLE_BGC
     PackageBackgroundColor STYLE_BGC
     ParticipantBackgroundColor STYLE_BGC
@@ -138,9 +169,27 @@ skinparam {
     ' All items below can be safely commented out.
     ' This will override the options listed above.
 
+    ' handwritten true
+
+    ' Global Options
+    DPI 150
+    Shadowing false
+    DefaultFontName Alata
+    DefaultFontName Roboto Condensed
+    DefaultFontSize 12
+    ' DefaultMonospacedFontName Inconsolata
+
+    roundcorner 8
+    'Monochrome true
+    NoteFontName Roboto Condensed
+    ' NoteFontName Courier New
+    NoteFontSize 8
+
     'NoteFontStyle Italic
-    NoteBackgroundColor STYLE_NOTE
-    NoteFontColor STYLE_NOTE_FGC
+    ArrowFontSize 8
+
+    ' Creates a default link color and then an alternate color for links in Notes.
+    HyperlinkColor #?Blue:LightBlue
 
 }
 @enduml

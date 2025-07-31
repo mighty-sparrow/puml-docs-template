@@ -1,0 +1,43 @@
+@startuml Common Infrastructure Components
+title Common Infrastructure Components in Sequence Diagrams
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub $rootPath/utils/common-header.iuml!MAIN
+!includesub $rootPath/utils/functions.iuml!MAIN
+
+!startsub MAIN
+    ' box "\nInfrastructure" #fff
+    box \nSome Infrastructure Elements Here %lighten(LightBlue,22)
+        !if %not(%variable_exists("$NO_API"))
+            participant api [
+                <color:LightGray><size:8>(""api"")
+                <color:DarkGray><$api-ai*.35>
+                API Endpoint
+                <size:8>(<size:8>Assume connections to
+                <size:8>external systems are in place)
+            ]
+        !endif
+
+        !if %not(%variable_exists("$NO_UI"))
+            participant ui [
+                <color:LightGray><size:8>(""ui"")
+                <color:DarkGray><$laptop*.35>
+                UI
+                <size:8>(Admin Software
+                <size:8>In A Browser)
+            ]
+        !endif
+
+        !if %not(%variable_exists("$NO_ADMIN"))
+            participant admin [
+                <color:LightGray><size:8>(""admin"")
+                <color:DarkGray><$user_secret*.5>
+                Administrator
+                <size:8>(System Administrator)
+            ]
+        !endif
+    end box
+!endsub
+
+@enduml

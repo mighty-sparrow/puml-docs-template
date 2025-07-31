@@ -1,0 +1,26 @@
+' The text after the `startuml` tag will be the name of the output file when rendered from the command-line.
+@startuml Templates For Use In Other Diagrams - Demo Functions
+title Templates For Use In Other Diagrams
+footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub $rootPath/utils/common-header.iuml!MAIN
+!includesub $rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS
+
+== Demo Sub 1 ==
+!startsub DEMO_SUB
+ui -> api ++: Press and release LEFT button
+api -->> tps --: Handle Event
+!endsub
+
+== Demo Sub 2 ==
+!startsub DEMO_SUB_2
+user -> ui ++: Press and release RIGHT button
+ui -->> api : Handle Event
+api -->> ui: Update UI
+deactivate ui
+ui -> user : Show message
+!endsub
+
+@enduml

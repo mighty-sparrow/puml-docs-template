@@ -1,0 +1,16 @@
+@startuml Common Actors
+title Common Actors in Sequence Diagrams
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub $rootPath/utils/common-header.iuml!MAIN
+!includesub $rootPath/utils/functions.iuml!MAIN
+
+!startsub MAIN
+!if %not(%variable_exists("$NO_USER"))
+    actor user as "User\n<size:8>Credentialed\n<size:8>(user)"
+!endif
+
+!endsub
+
+@enduml

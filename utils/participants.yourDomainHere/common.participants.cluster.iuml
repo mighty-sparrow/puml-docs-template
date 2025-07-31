@@ -1,0 +1,45 @@
+@startuml Common Cluster Components
+title Common Cluster Components
+
+' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
+!$rootPath = ../..
+!includesub $rootPath/utils/common-header.iuml!MAIN
+!includesub $rootPath/utils/functions.iuml!MAIN
+
+!startsub MAIN
+
+box \nCompute Services\n<size:8>(Cloud or On-Premises?)</size>\n %lighten(LightBlue,15)
+
+	!if %not(%variable_exists("$NO_TPS"))
+		participant tps <<participant-not-secure>> [
+			<size:8>(""tps"")
+			Third Party
+			Services
+		]
+	!endif
+	!if %not(%variable_exists("$NO_DB"))
+		participant db [
+			<size:8>(""db"")
+			Data
+			Service
+		]
+	!endif
+	!if %not(%variable_exists("$NO_CS"))
+		participant cert [
+			<size:8>(""cert"")
+			Certificate
+			Service
+		]
+	!endif
+	!if %not(%variable_exists("$NO_WEB"))
+		participant web [
+			<size:8>(""web"")
+			Web Application
+			Service
+		]
+	!endif
+end box
+
+!endsub
+
+@enduml

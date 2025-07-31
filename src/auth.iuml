@@ -1,7 +1,0 @@
-
-!include <tupadr3/common>
-!include <tupadr3/devicons/database>
-opt Authenticate
-    app -x "OAUTH\n<$database*.5>":Send Credentials
-    "OAUTH\n<$database*.5>" x->> app: Token
-end opt

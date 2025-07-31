@@ -1,0 +1,232 @@
+{
+	// Place your zayo-docs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// PLANTUML SNIPPETS: BEGIN
+	"Create Date Stamp Header":{
+		"scope": "plantuml",
+		"prefix":"puml-h",
+		"body":[
+			"header Rendered on **%date(\"yyyy.MM.dd'\")** at **%date(\"'HH:mm\")**"
+		],
+		"description": "Add a date-time stamp to the rendered image."
+	},
+	"Create Date Stamp Footer":{
+		"scope": "plantuml",
+		"prefix":"puml-f",
+		"body":[
+			"footer Rendered on \"\"%date(\"'**'yyyy.MM.dd'**'\")\"\" @ \"\"%date(\"'**'HH:mm'**'\")\"\""
+		],
+		"description": "Add a date-time stamp to the rendered image."
+	},
+	"Plain: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-n",
+		"body":[
+			"rnote over ${1:overWhat}",
+			"<b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end rnote"
+		],
+		"description": "Create A Basic Note With A Fancy Header."
+	},
+	"Info: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-ni",
+		"body":[
+			"rnote over ${1:overWhat} #LightBlue",
+			"<\\$info*.25,color:#000066> <color:#000066><b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end rnote"
+		],
+		"description": "Create a blue, Info box."
+	},
+	"Question: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-nq",
+		"body":[
+			"rnote over ${1:overWhat} #Plum",
+			"<\\$question_circle_o*.25,color:Indigo> <color:#Indigo><b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end rnote"
+		],
+		"description": "Create a purple, Question box."
+	},
+	"Success: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-ns",
+		"body":[
+			"rnote over ${1:overWhat} #LightGreen",
+			"<\\$check_circle*.25,color:DarkGreen> <color:DarkGreen><b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end rnote"
+		],
+		"description": "Create a green, Success box."
+	},
+	"Warning: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-nw",
+		"body":[
+			"hnote over ${1:overWhat} #LightYellow",
+			"<\\$exclamation_triangle*.25,color:Darkorange> <color:Darkorange><b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end hnote"
+		],
+		"description": "Create a yellow, Warning box."
+	},
+	"Error: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-ne",
+		"body":[
+			"hnote over ${1:overWhat} #Pink",
+			"<\\$exclamation_circle*.25,color:DarkRed> <color:DarkRed><b><size:10>~~${2:title}~~</size></b>",
+			"$0",
+			"end hnote"
+		],
+		"description": "Create a red, Error box."
+	},
+	"Note Header":{
+		"scope": "plantuml",
+		"prefix":"puml-h1",
+		"body":[
+			"<b><size:10>~~${1:title}~~</size></b>",
+			"$0"
+		],
+		"description": "Create a headline for a multiline note."
+	},
+	"Template Include: Create Note":{
+		"scope": "plantuml",
+		"prefix":"puml-nt",
+		"body":[
+			"rnote over ${1:overWhat} #LightBlue",
+			"\t<\\$info*.25,color:#000066> <color:#000066><b><size:10>~~Templates~~</size></b>",
+			"\tThe sequences in this file were designed to be included in other diagrams.",
+			"end rnote",
+			"$0"
+		],
+		"description": "Simple, blue box reminding users this diagram contains templates to use elsewhere."
+	},
+	"Template Header":{
+		"scope": "plantuml",
+		"prefix":"puml-tmps",
+		"body":[
+			"@startuml Templates For Use In Other Diagrams - ${1:title}",
+			"title Templates For Use In Other Diagrams",
+			"footer Rendered on %date(\"yyyy.MM.dd' at 'HH:mm\")",
+			"$0",
+			"@enduml"
+		],
+		"description": "Add some starter content to PUML includes."
+	},
+	"Common Template Includes":{
+		"scope": "plantuml",
+		"prefix":"puml-ti",
+		"body":[
+			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
+			"!\\$rootPath = ../..",
+			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_INCLUDES",
+			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS",
+			"$0"
+		],
+		"description": "Add some starter content to PUML includes."
+	},
+	"Platform: Template Diagram":{
+		"scope": "plantuml",
+		"prefix":"puml-doc",
+		"body":[
+			"' The text after the `startuml` tag will be the name of the output file when rendered from the command-line.",
+			"@startuml ${1:title}",
+			"title ${1:title}",
+			"footer Rendered on %date(\"yyyy.MM.dd' at 'HH:mm\")",
+			"",
+			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
+			"!\\$rootPath = ../..",
+			"!includesub ./_participants.iuml!COMMON_PARTICIPANTS",
+			"",
+			"$0",
+			"",
+			"@enduml"
+		],
+		"description": "Creates a complete diagram will all the things."
+	},
+	"Standard: Template Diagram Participants":{
+		"scope": "plantuml",
+		"prefix":"puml-doc-p",
+		"body":[
+			"@startuml Templates For Use In Other Diagrams - ${1:title}",
+			"title Participants For Use In _index.puml",
+			"",
+			"!startsub COMMON_PARTICIPANTS",
+			"",
+			"' Don't forget to add your Exclusion Flags for anything you do not need. (try the shortcut `puml-xf`)",
+			"",
+			"$0",
+			"",
+			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
+			"!\\$rootPath = ../..",
+			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_INCLUDES",
+			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS",
+			"",
+			"!endsub",
+			"@enduml"
+		],
+		"description": "Creates a starting point for a _participants.iuml file to include in another diagram."
+	},
+	"Exclusion Flags":{
+		"scope": "plantuml",
+		"prefix":"puml-xf",
+		"description": "Include ALL of the flags to hide participants in the diagrams.",
+		"body":[
+	"\t' USERS",
+	"\t' Uncomment to exclude the entire set of \"actors\"",
+	"\t' !\\$NO_ACTORS = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the generic \"User\"",
+	"\t    '!\\$NO_USER = \"\"",
+	"\t",
+	"\t",
+	"\t' INFRASTRUCTURE SERVICES",
+	"\t' Uncomment to exclude the entire infrastructure box",
+	"\t'!\\$NO_INFRA = \"\"",
+	"\t    ' Uncomment to exclude the API Endpoint/Proxy",
+	"\t    '!\\$NO_API = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the Admin UI (i.e. \"A Portal UI\")",
+	"\t    '!\\$NO_UI = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the infrastructure administrator",
+	"\t    '!\\$NO_ADMIN = \"\"",
+	"\t",
+	"\t",
+	"\t' CLUSTER COMPONENTS",
+	"\t' Uncomment to exclude the entire Cluster Services box",
+	"\t' !\\$NO_CLUSTER = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the Third Party Services",
+	"\t    '!\\$NO_TPS = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the Data Services",
+	"\t    '!\\$NO_DB = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the Certificate Services",
+	"\t    '!\\$NO_CS = \"\"",
+	"\t",
+	"\t    ' Uncomment to exclude the Web Application Services",
+	"\t    '!\\$NO_WEB = \"\"",
+		]
+	},
+	// PLANTUML SNIPPETS: END
+}
