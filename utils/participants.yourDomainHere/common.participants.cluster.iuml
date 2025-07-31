@@ -12,28 +12,28 @@ box \nCompute Services\n<size:8>(Cloud or On-Premises?)</size>\n %lighten(LightB
 
 	!if %not(%variable_exists("$NO_TPS"))
 		participant tps <<participant-not-secure>> [
-			<size:8>(""tps"")
+			<color:%darken("#ffdddd",10)><size:8>(""tps"")
 			Third Party
 			Services
 		]
 	!endif
 	!if %not(%variable_exists("$NO_DB"))
 		participant db [
-			<size:8>(""db"")
+			<color:LightGray><size:8>(""db"")
 			Data
 			Service
 		]
 	!endif
 	!if %not(%variable_exists("$NO_CS"))
 		participant cert [
-			<size:8>(""cert"")
+			<color:LightGray><size:8>(""cert"")
 			Certificate
 			Service
 		]
 	!endif
 	!if %not(%variable_exists("$NO_WEB"))
 		participant web [
-			<size:8>(""web"")
+			<color:LightGray><size:8>(""web"")
 			Web Application
 			Service
 		]

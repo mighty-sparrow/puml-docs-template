@@ -8,7 +8,7 @@ title Common Actors in Sequence Diagrams
 
 !startsub MAIN
 !if %not(%variable_exists("$NO_USER"))
-    actor user as "User\n<size:8>Credentialed\n<size:8>(user)"
+    actor user as "<color:#ccc><size:8>(user)\nUser\n<size:8>Credentialed"
 !endif
 
 !endsub

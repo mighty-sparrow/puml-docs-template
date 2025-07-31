@@ -7,6 +7,7 @@ footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
 !$rootPath = ../..
 !includesub ./_participants.iuml!COMMON_PARTICIPANTS
 
-
+!includesub $rootPath/diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB_2
+!includesub $rootPath/diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB
 
 @enduml
