@@ -5,7 +5,7 @@
 ' used depends on the "STYLE_THEME" selected. The default theme is "DEFAULT".
 
 ' Load preset styles.
-!define STYLEPATH .
+!define STYLEPATH https://raw.githubusercontent.com/mighty-sparrow/puml-docs-template/refs/heads/dev-pub/style
 !include STYLEPATH/presets.iuml
 
 ' Color Definition
