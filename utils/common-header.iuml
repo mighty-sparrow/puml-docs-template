@@ -5,7 +5,7 @@
 !define STYLE_THEME DEFAULT
 
 ' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
-!$rootPath = https://raw.githubusercontent.com/mighty-sparrow/puml-docs-template/refs/heads/dev-pub
+!$rootPath = "https://raw.githubusercontent.com/mighty-sparrow/puml-docs-template/refs/heads/dev-pub"
 
 !startsub MAIN
 !pragma teoz true
