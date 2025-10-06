@@ -5,8 +5,8 @@
 ' used depends on the "STYLE_THEME" selected. The default theme is "DEFAULT".
 
 ' Load preset styles.
-!define STYLEPATH https://raw.githubusercontent.com/mighty-sparrow/puml-docs-template/refs/heads/dev-pub/style
-!include STYLEPATH/presets.iuml
+' !define STYLEPATH 
+!include https://raw.githubusercontent.com/mighty-sparrow/puml-docs-template/refs/heads/dev-pub/style/presets.iuml
 
 ' Color Definition
 '  - Choose the style you want by applying them here.
