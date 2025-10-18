@@ -1,0 +1,7 @@
+{
+    "plantuml.includepaths": [
+        "sprites",
+        "style",
+        "utils",
+    ]
+}

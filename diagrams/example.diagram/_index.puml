@@ -3,11 +3,84 @@
 title Display Title Here
 footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
 
-' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
-!$rootPath = ../..
 !includesub ./_participants.iuml!COMMON_PARTICIPANTS
+!if %not(%variable_exists("$NO_TESTING"))
+    actor testing as "<color:ffcc00><size:8>(testing)\nTesting\n<size:8>Just a test"
+!endif
 
-!includesub $rootPath/diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB_2
-!includesub $rootPath/diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB
+rnote over testing
+    <b><size:10>__One-Time Actors__</size></b>
+
+    Even after include actors or participants
+    from another file, you can create more.
+end rnote
+
+!includesub ../diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB_2
+!includesub ../diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB
+
+tps o<<-->>o web: Use the standard syntax here
+rnote over ui,admin
+    <b><size:10>__Busines as Usual__</size></b>
+
+    Even though you are including functions,
+    that doesn't mean you can't continue with
+    your standard PlantUML code throughout
+    the rest of the diagram.
+end rnote
+
+& rnote over tps,cert <<noteInfo>>
+    <$info*.25,color:DarkBlue> <color:#DarkBlue><b><size:10>__Inline Too__</size></b>
+
+    Don't forget: you can also add actions ""INLINE""
+    but simply prefixing your line with an ampersand (""&"").
+end rnote
+
+== Note Types ==
+
+rnote over user,ui
+    <b><size:10>__Plain Note__</size></b>
+    
+    Using the **"""puml-n"""** snippet generates a plain note
+    to call out some long, multi-line text.
+    
+    Actually, in all of these note formats you can create a
+    multi-line note.
+end rnote
+
+hnote over api,admin <<noteError>>
+    <$exclamation_circle*.25,color:DarkRed> <color:DarkRed><b><size:10>__Error Style__</size></b>
+    
+    Use the **"""puml-ne"""** snippet to render an error message. Like other
+    notes, this message can span multiple lines.
+end hnote
+
+rnote over ui,tps <<noteInfo>>
+    <$info*.25,color:DarkBlue> <color:DarkBlue><b><size:10>__Info Style__</size></b>
+    
+    Using the **"""puml-ni"""** snippet creates a common style of note to
+    indicate simple information, no action needed.
+end rnote
+
+rnote over admin,db <<noteQuestion>>
+    <$question_circle_o*.25,color:Indigo> <color:Indigo><b><size:10>__Question Style__</size></b>
+    
+    Use the **"""puml-nq"""** snippet to create a purple question block.
+end rnote
+
+rnote over tps,cert <<noteSuccess>>
+    <$check_circle*.25,color:DarkGreen> <color:DarkGreen><b><size:10>__Great Success__</size></b>
+    
+    Use the **"""puml-ns"""** snippet to indicate a positive,
+    sucessful response.
+end rnote
+
+hnote over db,web <<noteWarn>>
+    <$exclamation_triangle*.25,color:Darkorange> <color:Darkorange><b><size:10>__Warning Style__</size></b>
+    
+    Last, but not least, use the **"""puml-nw"""** snippet to create a hexagonal
+    warning message. Not as alarming as the red ""Error"" message, but still
+    very effective. <:smile:>
+end hnote
+
 
 @enduml

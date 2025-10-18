@@ -1,12 +1,15 @@
-@startuml
+@startuml This should not be used directly
+title ""
 ' This file is a part of the PlantUML Styling Project. The contents of this
 ' define the default color values to use for the various PlantUML elements.
 ' The variables are defined in the "presets.iuml" file. The subset of colors
 ' used depends on the "STYLE_THEME" selected. The default theme is "DEFAULT".
+!ifndef STYLE_THEME
+  !define STYLE_THEME DEFAULT
+!endif
 
 ' Load preset styles.
-!define STYLEPATH .
-!include STYLEPATH/presets.iuml
+!include presets.iuml
 
 ' Color Definition
 '  - Choose the style you want by applying them here.
@@ -17,6 +20,9 @@
 !endif
 !if %not(%variable_exists("STYLE_BGC"))
     !define STYLE_BGC STYLE_DEFAULT_BGC
+!endif
+!if %not(%variable_exists("STYLE_BGC_P"))
+    !define STYLE_BGC_P STYLE_DEFAULT_BGC_P
 !endif
 !if %not(%variable_exists("STYLE_FGC"))
     !define STYLE_FGC STYLE_DEFAULT_FGC
@@ -31,39 +37,11 @@
     !define STYLE_NOTE_FGC STYLE_DEFAULT_NOTE_FGC
 !endif
 
-' Trying to think ahead and phase out skinparam per the documentation
-<style>
-.participant-not-secure{
-' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
-  BackgroundColor #ffdddd
-}
-.participant-secure{
-' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
-  BackgroundColor #ddffdd
-}
-.participant-question{
-' Setting some generic colors to indicate whether the participant is up for discussion.
-  BackgroundColor #Yellow
-  FontColor #000
-}
-participant{
-    BackgroundColor #ff0000
-    FontColor #fff
-}
-.charcoal-link {
-  HyperlinkColor #333
-}
-.participant-link {
-  HyperlinkColor #000
-}
-</style>
-' RECOMMENDED STYLE
-' -=- DO NOT EDIT THIS SECTION. -=-
-' See Custom Style section below to override items here.
-
-skinparam {
+' ' RECOMMENDED STYLE
+' ' -=- DO NOT EDIT THIS SECTION. -=-
+' ' See Custom Style section below to override items here.
+skinparam{
     DefaultFontColor STYLE_FGC
-    NoteFontColor STYLE_NOTE_FGC
 
     ' Styles - Borders
 
@@ -86,7 +64,6 @@ skinparam {
     FrameBorderColor STYLE_ACCENT
     InterfaceBorderColor STYLE_ACCENT
     LegendBorderColor STYLE_ACCENT
-    NoteBorderColor STYLE_ACCENT
     ObjectBorderColor STYLE_ACCENT
     PackageBorderColor STYLE_ACCENT
     ParticipantBorderColor STYLE_ACCENT
@@ -131,10 +108,9 @@ skinparam {
     InterfaceBackgroundColor STYLE_BGC
     LegendBackgroundColor STYLE_BGC
     NodeBackgroundColor STYLE_BGC
-    NoteBackgroundColor STYLE_NOTE
     ObjectBackgroundColor STYLE_BGC
     PackageBackgroundColor STYLE_BGC
-    ParticipantBackgroundColor STYLE_BGC
+    ParticipantBackgroundColor STYLE_BGC_P
     PartitionBackgroundColor STYLE_BGC
     QueueBackgroundColor STYLE_BGC
     RectangleBackgroundColor STYLE_BGC
@@ -172,24 +148,105 @@ skinparam {
     ' handwritten true
 
     ' Global Options
-    DPI 150
+    DPI 300
     Shadowing false
     DefaultFontName Alata
+    DefaultFontName Verdana
     DefaultFontName Roboto Condensed
+    
     DefaultFontSize 12
     ' DefaultMonospacedFontName Inconsolata
 
     roundcorner 8
     'Monochrome true
-    NoteFontName Roboto Condensed
-    ' NoteFontName Courier New
-    NoteFontSize 8
-
-    'NoteFontStyle Italic
+  
     ArrowFontSize 8
 
     ' Creates a default link color and then an alternate color for links in Notes.
-    HyperlinkColor #?Blue:LightBlue
+    HyperlinkColor #?STYLE_FGC:LightBlue
 
 }
+
+' Trying to think ahead and phase out skinparam per the documentation
+<style>
+  note {
+    FontColor STYLE_NOTE_FGC
+    LineColor STYLE_NOTE
+    BackgroundColor STYLE_NOTE
+    FontName Roboto Condensed
+    ' FontName Courier New
+    ' FontStyle Italic
+    FontSize 8
+  }
+  .noteLight {
+    BackgroundColor STYLE_BGC
+    LineColor STYLE_NOTE
+  }
+  .noteError {
+    BackgroundColor #MistyRose
+    LineColor #Red
+  }
+  .noteInfo {
+    BackgroundColor #LightBlue
+    LineColor #DarkBlue
+  }
+  .noteQuestion {
+    BackgroundColor #Plum
+    LineColor %darken("Plum",40)
+    LineThickness 1
+  }
+  .noteSuccess {
+    BackgroundColor #LightGreen
+    LineColor #DarkGreen
+  }
+  .noteWarn {
+    BackgroundColor #LightYellow
+    LineColor #Darkorange
+  }
+  .participant-not-secure{
+  ' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
+    BackgroundColor #ffdddd
+  }
+  .participant-secure{
+  ' Setting some generic colors to indicate whether the participant is "secure" code or "insecure" code (...not because the code thinks it's ugly).
+    BackgroundColor #ddffdd
+  }
+  .participant-question{
+  ' Setting some generic colors to indicate whether the participant is up for discussion.
+    BackgroundColor #Yellow
+    FontColor #000
+  }
+  participant{
+      ' BackgroundColor STYLE_BGC_P
+      FontColor STYLE_FGC
+  }
+  .charcoal-link {
+    HyperlinkColor #ccc
+    HyperlinkUnderline false
+  }
+  .participant-link {
+    HyperlinkColor STYLE_FGC
+    HyperlinkUnderlineThickness 0
+  }
+  box {
+    LineThickness 0
+    LineColor #blue
+  }
+  group {
+    LineThickness 1
+    LineColor #eee
+  }
+  opt {
+    LineThickness 1
+    LineColor #eee
+  }
+  loop {
+    LineThickness 1
+    LineColor #blue
+  }
+  arrow{
+      BackgroundColor None
+  }
+</style>
+
 @enduml
