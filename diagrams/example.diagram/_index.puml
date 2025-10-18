@@ -11,7 +11,7 @@ footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
 rnote over testing
     <b><size:10>__One-Time Actors__</size></b>
 
-    Even after include actors or participants
+    Even after including actors or participants
     from another file, you can create more.
 end rnote
 
@@ -32,7 +32,7 @@ end rnote
     <$info*.25,color:DarkBlue> <color:#DarkBlue><b><size:10>__Inline Too__</size></b>
 
     Don't forget: you can also add actions ""INLINE""
-    but simply prefixing your line with an ampersand (""&"").
+    by simply prefixing your line with an ampersand (""&"").
 end rnote
 
 == Note Types ==
