@@ -27,21 +27,26 @@ footer Rendered on ""%date("'**'yyyy.MM.dd'**'")"" @ ""%date("'**'HH:mm'**'")""
 !$iot = sprites/iot
 !$dev = sprites/device
 
-%set_variable_value("$remPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/logos")
-!include $remPuml/nestjs.puml
-!include $remPuml/nvidia.puml
-%set_variable_value("$aiPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/gcp")
+' %set_variable_value("$remPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/logos")
+' !include $remPuml/nestjs.puml
+' !include $remPuml/nvidia.puml
+
+' %set_variable_value("$aiPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/gcp")
 ' !include $aiPuml/AutoML_Translation.puml
-!include $aiPuml/GCPRaw.puml
+' !include $aiPuml/GCPRaw.puml
+' !include <gcp/GCPRaw>
+' !include <gcp/AI_and_Machine_Learning/AI_Platform_Data_Labeling_Service>
+' !include <gcp/AI_and_Machine_Learning/AI_Platform>
+' !include <gcp/AI_and_Machine_Learning/Cloud_Inference_API>
+' !include <gcp/Networking/Cloud_DNS>
+
+!include <logos/nestjs>
+!include <logos/nvidia>
 
 !include <logos/react>
 !include <office/devices/hard_disk>
 !include <logos/graphql>
 !include <logos/elasticsearch>
-!include <gcp/AI_and_Machine_Learning/AI_Platform_Data_Labeling_Service>
-!include <gcp/AI_and_Machine_Learning/AI_Platform>
-!include <gcp/AI_and_Machine_Learning/Cloud_Inference_API>
-!include <gcp/Networking/Cloud_DNS>
 !include <osa/lifecycle/lifecycle>
 !include <logos/api-ai>
 !include <logos/sqlite>
@@ -130,14 +135,25 @@ footer Rendered on ""%date("'**'yyyy.MM.dd'**'")"" @ ""%date("'**'HH:mm'**'")""
 !include <office/servers/cluster_server_orange>
 !endsub
 
-participant a as "Should Not\nSee Me"
-participant b as "Me Either"
+participant a [
+    Should Not
+    See Me
+]
+participant b as "Me\nEither"
 ' participant c as "Third Party<$aws-sns*.5>"
-participant c as "Third Party<$oracleDBinstance*.25>"
-participant s3 as "AWS S3<color:Green><$aws-s3*.5>"
+participant c [
+     Third Party
+     <color:DarkRed><$nestjs*.5>
+    ]
+participant s3 [
+    AWS S3
+    <color:Green><$aws-s3*.5>
+    ]
 note over a: Go Away.
 a -> b: This too.
 & c --> b: Inline stuff.
+& c o-->>(20) s3: Arrow at 20º angle\n
+& c o-->>(45) s3: Arrow at 45º angle
 
 ' $AWSIcon(SimpleNotificationService, "Hi there") as sns
 @enduml
