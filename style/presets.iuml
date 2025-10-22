@@ -1,23 +1,24 @@
-@startuml
+@startuml This is a template
+title ""
 ' This file contains styles that can be used to customize the
 ' look and feel of your PlantUML diagrams. Within your main
 ' PlantUML file, you can define which style to use by setting
 ' the STYLE_THEME variable to one of the following options:
-' [ DEFAULT | LIGHT | DARK | MIDNIGHT | NATURAL | NATURAL_DARK | NATURAL_DARK_ALT ]
-
-' Preset Styles by Jeriel Jan
+' !define STYLE_THEME DEFAULT [ DEFAULT | LIGHT | DARK | MIDNIGHT | NATURAL | NATURAL_DARK | NATURAL_DARK_ALT ]
 
 ' Preset: Monochrome
 !define STYLE_DEFAULT_ACCENT #999
-!define STYLE_DEFAULT_BGC #EEE
+!define STYLE_DEFAULT_BGC #fefefe
+!define STYLE_DEFAULT_BGC_P #fff
 !define STYLE_DEFAULT_FGC #000
-!define STYLE_DEFAULT_LINE #333
-!define STYLE_DEFAULT_NOTE #LightYellow
+!define STYLE_DEFAULT_LINE #999
+!define STYLE_DEFAULT_NOTE LightGoldenRodYellow
 !define STYLE_DEFAULT_NOTE_FGC #333
 
 ' Preset: Natural
 !define STYLE_NATURAL_ACCENT #437c90
 !define STYLE_NATURAL_BGC #eeebd3
+!define STYLE_NATURAL_BGC_P #eeebd3
 !define STYLE_NATURAL_FGC #575c33
 !define STYLE_NATURAL_LINE #333
 !define STYLE_NATURAL_NOTE #f7c548
@@ -26,6 +27,7 @@
 ' Preset: Natural Dark
 !define STYLE_NATURAL_DARK_ACCENT #437c90
 !define STYLE_NATURAL_DARK_BGC #575c33
+!define STYLE_NATURAL_DARK_BGC_P #575c33
 !define STYLE_NATURAL_DARK_FGC #eeebd3
 !define STYLE_NATURAL_DARK_LINE #eeebd3
 !define STYLE_NATURAL_DARK_NOTE #f7c548
@@ -34,6 +36,7 @@
 ' Preset: Natural Dark Alt
 !define STYLE_NATURAL_DARK_ALT_ACCENT #575c33
 !define STYLE_NATURAL_DARK_ALT_BGC #437c90
+!define STYLE_NATURAL_DARK_ALT_BGC_P #437c90
 !define STYLE_NATURAL_DARK_ALT_FGC #eeebd3
 !define STYLE_NATURAL_DARK_ALT_LINE #eeebd3
 !define STYLE_NATURAL_DARK_ALT_NOTE #f7c548
@@ -42,6 +45,7 @@
 ' Preset: Material Light Blue (200)
 !define STYLE_LIGHT_ACCENT #81D4FA
 !define STYLE_LIGHT_BGC #FFF
+!define STYLE_LIGHT_BGC_P #FFF
 !define STYLE_LIGHT_FGC #000
 !define STYLE_LIGHT_LINE #CCC
 !define STYLE_LIGHT_NOTE #LightSkyBlue
@@ -50,6 +54,7 @@
 ' Preset: Material Light Blue (800)
 !define STYLE_DARK_ACCENT #0277BD
 !define STYLE_DARK_BGC #000
+!define STYLE_DARK_BGC_P #000
 !define STYLE_DARK_FGC #FFF
 !define STYLE_DARK_LINE #333
 !define STYLE_DARK_NOTE #DarkBlue
@@ -58,6 +63,7 @@
 ' Preset: Material Light Blue (800)
 !define STYLE_MIDNIGHT_ACCENT #0277BD
 !define STYLE_MIDNIGHT_BGC #000
+!define STYLE_MIDNIGHT_BGC_P #000
 !define STYLE_MIDNIGHT_FGC #FFF
 !define STYLE_MIDNIGHT_LINE #336699
 !define STYLE_MIDNIGHT_NOTE #LightSKyBlue
@@ -73,6 +79,10 @@
     !if %not(%variable_exists("STYLE_BGC"))
         %set_variable_value("BGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_BGC")
         !define STYLE_BGC %get_variable_value(BGC)
+    !endif
+    !if %not(%variable_exists("STYLE_BGC_P"))
+        %set_variable_value("BGC_P","STYLE_" + %get_variable_value("STYLE_THEME") + "_BGC_P")
+        !define STYLE_BGC_P %get_variable_value(BGC_P)
     !endif
     !if %not(%variable_exists("STYLE_FGC"))
         %set_variable_value("FGC","STYLE_" + %get_variable_value("STYLE_THEME") + "_FGC")
@@ -91,9 +101,5 @@
         !define STYLE_NOTE_FGC %get_variable_value(NOTE_FGC)
     !endif
 !endif
-
-skinparam {
-    ' This field left intentionally blank.
-}
 
 @enduml

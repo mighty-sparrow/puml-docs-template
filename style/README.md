@@ -1,17 +1,45 @@
 # Style
 
 These files are used to ensure a consistent style across diagrams. Include them in a diagram with the following lines:
-```java
+
+If you are using the `plantuml.includepaths` in VS Code (or the `-Dplantuml.include.path` parameter from the command-line), you only need to include the file name itself. PlantUML will look for the files at those directory destinations first.
+```
+@startuml
+
+!pragma teoz true
+
+!include skinparams.iuml
+!include stylesheet.iuml
+
+@enduml
+
+```
+
+---
+<details>
+<summary>Explicit Paths</summary>
+
+If you are not using the globally included paths, you can also explicity include a file by a full or relative path.
+
+<sub>(...but it's not as easy to maintain).</sub>
+```
 @startuml
 
 !pragma teoz true
 
 !include ../style/skinparams.iuml
-!include ../style/stylesheet.iuml
+!include /Users/someuser/ProjectSource/my_puml_project/style/stylesheet.iuml
 
 @enduml
 
 ```
+
+</details>
+
+
+---
+<br/>
+<br/>
 
 # Style Pages
 

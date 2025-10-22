@@ -1,47 +1,52 @@
-@startuml
-
+@startuml TEMP TITLE
+title To Be included elsewhere.
 ' Assign a THEME from your PUML file instead of individual styles.
-' Options are: [ DEFAULT | NATURAL | NATURAL_DARK | NATURAL_DARK_ALT | LIGHT | DARK | MIDNIGHT ]
-!define STYLE_THEME DEFAULT
 
-' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
-!$rootPath = ..
 
 !startsub MAIN
+' Options are: [ DEFAULT | NATURAL | NATURAL_DARK | NATURAL_DARK_ALT | LIGHT | DARK | MIDNIGHT ]
+
 !pragma teoz true
 ' !pragma layout smetana
 
 autonumber "<color:Gray>[ </color><color:Red> 0 </color><color:Gray> ]</color>"
 
-!include $rootPath/style/stylesheet.iuml
+!include stylesheet.iuml
 
 footer Rendered on ""%date("'**'yyyy.MM.dd'**'")"" @ ""%date("'**'HH:mm'**'")""
-legend right 
-    <#FFFFFF,#FFFFFF>|= |= Participant Type |
-    |<back:#ddffdd>     </back>| First Type |
-    |<back:#ffdddd>     </back>| Second Type|
-    |<back:#Yellow>     </back>| Third Type|
-endlegend
 
-!$aiml = $rootPath/sprites/AI_and_Machine_Learning
-!$iot = $rootPath/sprites/iot
-!$dev = $rootPath/sprites/device
+' ' Uncomment if you want to include a legend in your diagrams
+' legend right 
+'     <#FFFFFF,#FFFFFF>|= |= Participant Type |
+'     |<back:#ddffdd>     </back>| First Type |
+'     |<back:#ffdddd>     </back>| Second Type|
+'     |<back:#Yellow>     </back>| Third Type|
+' endlegend
 
-%set_variable_value("$remPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/logos")
-!include $remPuml/nestjs.puml
-!include $remPuml/nvidia.puml
-%set_variable_value("$aiPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/gcp")
+!$aiml = sprites/AI_and_Machine_Learning
+!$iot = sprites/iot
+!$dev = sprites/device
+
+' %set_variable_value("$remPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/logos")
+' !include $remPuml/nestjs.puml
+' !include $remPuml/nvidia.puml
+
+' %set_variable_value("$aiPuml", "https://raw.githubusercontent.com/plantuml/plantuml-stdlib/refs/heads/master/stdlib/gcp")
 ' !include $aiPuml/AutoML_Translation.puml
-!include $aiPuml/GCPRaw.puml
+' !include $aiPuml/GCPRaw.puml
+' !include <gcp/GCPRaw>
+' !include <gcp/AI_and_Machine_Learning/AI_Platform_Data_Labeling_Service>
+' !include <gcp/AI_and_Machine_Learning/AI_Platform>
+' !include <gcp/AI_and_Machine_Learning/Cloud_Inference_API>
+' !include <gcp/Networking/Cloud_DNS>
+
+!include <logos/nestjs>
+!include <logos/nvidia>
 
 !include <logos/react>
 !include <office/devices/hard_disk>
 !include <logos/graphql>
 !include <logos/elasticsearch>
-!include <gcp/AI_and_Machine_Learning/AI_Platform_Data_Labeling_Service>
-!include <gcp/AI_and_Machine_Learning/AI_Platform>
-!include <gcp/AI_and_Machine_Learning/Cloud_Inference_API>
-!include <gcp/Networking/Cloud_DNS>
 !include <osa/lifecycle/lifecycle>
 !include <logos/api-ai>
 !include <logos/sqlite>
@@ -61,7 +66,7 @@ endlegend
 !include <tupadr3/font-awesome-5/user_ninja>
 !include <tupadr3/font-awesome-5/user_astronaut>
 !include <tupadr3/font-awesome-5/chart_bar>
-!include <tupadr3/font-awesome-5/door_open>
+!include <tupadr3/font-awesome-5/door_open> 
 !include <tupadr3/font-awesome-5/door_closed>
 !include <tupadr3/font-awesome-5/id_badge>
 !include <tupadr3/font-awesome-5/poo>
@@ -69,8 +74,12 @@ endlegend
 !include <tupadr3/font-awesome-5/sd_card>
 !include <tupadr3/font-awesome-5/fast_forward>
 !include <tupadr3/font-awesome-5/fast_backward>
+!include <tupadr3/font-awesome-5/money_bill_wave_alt>
+!include <office/concepts/globe_internet>
+!include <office/security/security_access_portal>
 !include <tupadr3/font-awesome/floppy_o>
 !include <tupadr3/font-awesome/usb>
+!include <tupadr3/font-awesome/bank>
 !include <tupadr3/common>
 !include <tupadr3/devicons/compass>
 !include <tupadr3/devicons/database>
@@ -101,6 +110,7 @@ endlegend
 !include <tupadr3/material/fingerprint>
 !include <tupadr3/material/nfc>
 !include <tupadr3/material/person>
+!include <tupadr3/material/report>
 !include <material/fast_forward_outline>
 !include <material/rewind_outline>
 !include <material/led_on>
@@ -114,12 +124,36 @@ endlegend
 !include <cloudinsight/left>
 !include <cloudinsight/right>
 !include <cloudinsight/keycloak>
+!include <logos/aws-sns>
+!include <logos/aws-s3>
+!include <logos/salesforce>
+!include <logos/oracle>
+!include <aws/database/amazonrds/oracleDBinstance/oracleDBinstance>
+!include <office/concepts/documents>
+!include <aws/analytics/amazonemr/cluster/cluster_LARGE>
+!include <aws/analytics/amazonemr/cluster/cluster>
+!include <office/servers/cluster_server_orange>
 !endsub
 
-participant a as "Should Not\nSee Me"
-participant b as "Me Either"
-participant c as "Third Party"
+participant a [
+    Should Not
+    See Me
+]
+participant b as "Me\nEither"
+' participant c as "Third Party<$aws-sns*.5>"
+participant c [
+     Third Party
+     <color:DarkRed><$nestjs*.5>
+    ]
+participant s3 [
+    AWS S3
+    <color:Green><$aws-s3*.5>
+    ]
 note over a: Go Away.
 a -> b: This too.
 & c --> b: Inline stuff.
+& c o-->>(20) s3: Arrow at 20º angle\n
+& c o-->>(45) s3: Arrow at 45º angle
+
+' $AWSIcon(SimpleNotificationService, "Hi there") as sns
 @enduml

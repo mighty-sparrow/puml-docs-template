@@ -5,11 +5,11 @@ title Participants For Use In _index.puml
 
 ' Don't forget to add your Exclusion Flags for anything you do not need. (try the shortcut `puml-xf`)
 
+' Demo: defining the variable ensures a participant is excluded.
+!$NO_SEEME=""
 
-' Use `$rootPath` to define how many directories to traverse up where you'll start including other files.
-!$rootPath = ../..
-!includesub $rootPath/utils/common.participants.iuml!COMMON_INCLUDES
-!includesub $rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS
+!includesub common.participants.iuml!COMMON_INCLUDES
+!includesub common.participants.iuml!COMMON_PARTICIPANTS
 
 !endsub
 @enduml

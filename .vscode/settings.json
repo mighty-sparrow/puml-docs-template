@@ -1,0 +1,20 @@
+{
+    "plantuml.commandArgs": [
+        "-DPLANTUML_LIMIT_SIZE=16384",
+    ],
+    "plantuml.exportFormat": "png",
+    "plantuml.exportOutDir": "public",
+    "plantuml.exportSubFolder": false,
+    /**
+     * Excluding the "includes", here (the *.iuml files).
+     * This way, they don't render when I right-click
+     * and "Export Workspace Diagrams" on a directory.
+     */
+    "plantuml.fileExtensions": ".wsd,.pu,.puml,.plantuml",
+    "plantuml.includepaths": [
+        "sprites",
+        "style",
+        "utils",
+    ],
+    "plantuml.render": "Local",
+}

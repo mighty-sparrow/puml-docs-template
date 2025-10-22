@@ -1,5 +1,5 @@
 {
-	// Place your zayo-docs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// Place your puml-docs-tempalte workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
@@ -32,13 +32,28 @@
 		],
 		"description": "Add a date-time stamp to the rendered image."
 	},
+	"Create Legend":{
+		"scope": "plantuml",
+		"prefix":"puml-leg",
+		"body":[
+			"' Include a custom legend in your diagrams.",
+			"legend right ",
+			"\t<#FFFFFF,#FFFFFF>|= |= Participant Type |",
+			"\t|<back:#ddffdd>     </back>| First Type |",
+			"\t|<back:#ffdddd>     </back>| Second Type|",
+			"\t|<back:#Yellow>     </back>| Third Type|",
+			"endlegend"
+		],
+		"description": "Add a legend to the rendered image."
+	},
 	"Plain: Create Note":{
 		"scope": "plantuml",
 		"prefix":"puml-n",
 		"body":[
 			"rnote over ${1:overWhat}",
-			"<b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"\t<b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end rnote"
 		],
 		"description": "Create A Basic Note With A Fancy Header."
@@ -47,9 +62,10 @@
 		"scope": "plantuml",
 		"prefix":"puml-ni",
 		"body":[
-			"rnote over ${1:overWhat} #LightBlue",
-			"<\\$info*.25,color:#000066> <color:#000066><b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"rnote over ${1:overWhat} <<noteInfo>>",
+			"\t<\\$info*.25,color:DarkBlue> <color:DarkBlue><b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end rnote"
 		],
 		"description": "Create a blue, Info box."
@@ -58,9 +74,10 @@
 		"scope": "plantuml",
 		"prefix":"puml-nq",
 		"body":[
-			"rnote over ${1:overWhat} #Plum",
-			"<\\$question_circle_o*.25,color:Indigo> <color:#Indigo><b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"rnote over ${1:overWhat} <<noteQuestion>>",
+			"\t<\\$question_circle_o*.25,color:Indigo> <color:Indigo><b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end rnote"
 		],
 		"description": "Create a purple, Question box."
@@ -69,9 +86,10 @@
 		"scope": "plantuml",
 		"prefix":"puml-ns",
 		"body":[
-			"rnote over ${1:overWhat} #LightGreen",
-			"<\\$check_circle*.25,color:DarkGreen> <color:DarkGreen><b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"rnote over ${1:overWhat} <<noteSuccess>>",
+			"\t<\\$check_circle*.25,color:DarkGreen> <color:DarkGreen><b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end rnote"
 		],
 		"description": "Create a green, Success box."
@@ -80,9 +98,10 @@
 		"scope": "plantuml",
 		"prefix":"puml-nw",
 		"body":[
-			"hnote over ${1:overWhat} #LightYellow",
-			"<\\$exclamation_triangle*.25,color:Darkorange> <color:Darkorange><b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"hnote over ${1:overWhat} <<noteWarn>>",
+			"\t<\\$exclamation_triangle*.25,color:Darkorange> <color:Darkorange><b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end hnote"
 		],
 		"description": "Create a yellow, Warning box."
@@ -91,9 +110,10 @@
 		"scope": "plantuml",
 		"prefix":"puml-ne",
 		"body":[
-			"hnote over ${1:overWhat} #Pink",
-			"<\\$exclamation_circle*.25,color:DarkRed> <color:DarkRed><b><size:10>~~${2:title}~~</size></b>",
-			"$0",
+			"hnote over ${1:overWhat} <<noteError>>",
+			"\t<\\$exclamation_circle*.25,color:DarkRed> <color:DarkRed><b><size:10>__${2:title}__</size></b>",
+			"\t",
+			"\t$0",
 			"end hnote"
 		],
 		"description": "Create a red, Error box."
@@ -102,7 +122,7 @@
 		"scope": "plantuml",
 		"prefix":"puml-h1",
 		"body":[
-			"<b><size:10>~~${1:title}~~</size></b>",
+			"<b><size:10>__${1:title}__</size></b>",
 			"$0"
 		],
 		"description": "Create a headline for a multiline note."
@@ -111,8 +131,8 @@
 		"scope": "plantuml",
 		"prefix":"puml-nt",
 		"body":[
-			"rnote over ${1:overWhat} #LightBlue",
-			"\t<\\$info*.25,color:#000066> <color:#000066><b><size:10>~~Templates~~</size></b>",
+			"rnote over ${1:overWhat} <<noteInfo>>",
+			"\t<\\$info*.25,color:DarkBlue> <color:DarkBlue><b><size:10>__Templates__</size></b>",
 			"\tThe sequences in this file were designed to be included in other diagrams.",
 			"end rnote",
 			"$0"
@@ -131,14 +151,42 @@
 		],
 		"description": "Add some starter content to PUML includes."
 	},
+	"Common Template Actor":{
+		"scope": "plantuml",
+		"prefix":"puml-ta",
+		"body":[
+			"!if %not(%variable_exists(\"\\$NO_${1/(.*)/${1:/upcase}/}\"))",
+    		"\tactor ${1:ActorName} as \"<color:ccc><size:8>(${1})\\n${2:DISPLAY_NAME}\\n<size:8>${3:DESCRIPTION}\"",
+			"!endif",
+			"$0"
+		],
+		"description": "Create a well-formatted actor for inclusion in the common participants file."
+	},
+	"Common Template Participant":{
+		"scope": "plantuml",
+		"prefix":"puml-tp",
+		"body":[
+			"!if %not(%variable_exists(\"\\$NO_${1/(.*)/${1:/upcase}/}\"))",
+			"\tparticipant $1 [",
+            "\t\t<color:LightGray><size:8>(\"\"$1\"\")",
+            "\t\t<color:DarkGray><\\$${2:ICON}*.5>",
+            "\t\t${3:DISPLAY_NAME}",
+            "\t\t<size:8><color:Gray>(${4:DESCRIPTION})",
+        	"\t]",
+			"!endif",
+			"$0"
+		],
+		"description": "Create a well-formatted participant for inclusion in the common participants file."
+	},
 	"Common Template Includes":{
 		"scope": "plantuml",
 		"prefix":"puml-ti",
 		"body":[
-			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
-			"!\\$rootPath = ../..",
-			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_INCLUDES",
-			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS",
+			"' While the `settings.json` file in this project defines paths to include ",
+			"' in this project, you may have to explicitly define the relative path if ",
+			"' rendering the project from the command-line.",
+			"!includesub common.participants.iuml!COMMON_INCLUDES",
+			"!includesub common.participants.iuml!COMMON_PARTICIPANTS",
 			"$0"
 		],
 		"description": "Add some starter content to PUML includes."
@@ -152,9 +200,11 @@
 			"title ${1:title}",
 			"footer Rendered on %date(\"yyyy.MM.dd' at 'HH:mm\")",
 			"",
-			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
-			"!\\$rootPath = ../..",
-			"!includesub ./_participants.iuml!COMMON_PARTICIPANTS",
+			"' While the `settings.json` file in this project defines paths to include ",
+			"' in this project, you may have to explicitly define the relative path if ",
+			"' rendering the project from the command-line.",
+			"!includesub common.participants.iuml!COMMON_INCLUDES",
+			"!includesub common.participants.iuml!COMMON_PARTICIPANTS",
 			"",
 			"$0",
 			"",
@@ -173,12 +223,13 @@
 			"",
 			"' Don't forget to add your Exclusion Flags for anything you do not need. (try the shortcut `puml-xf`)",
 			"",
-			"$0",
+			"' While the `settings.json` file in this project defines paths to include ",
+			"' in this project, you may have to explicitly define the relative path if ",
+			"' rendering the project from the command-line.",
+			"!includesub common.participants.iuml!COMMON_INCLUDES",
+			"!includesub common.participants.iuml!COMMON_PARTICIPANTS",
 			"",
-			"' Use `\\$rootPath` to define how many directories to traverse up where you'll start including other files.",
-			"!\\$rootPath = ../..",
-			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_INCLUDES",
-			"!includesub \\$rootPath/utils/common.participants.iuml!COMMON_PARTICIPANTS",
+			"$0",
 			"",
 			"!endsub",
 			"@enduml"
@@ -190,42 +241,42 @@
 		"prefix":"puml-xf",
 		"description": "Include ALL of the flags to hide participants in the diagrams.",
 		"body":[
-	"\t' USERS",
-	"\t' Uncomment to exclude the entire set of \"actors\"",
-	"\t' !\\$NO_ACTORS = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the generic \"User\"",
-	"\t    '!\\$NO_USER = \"\"",
-	"\t",
-	"\t",
-	"\t' INFRASTRUCTURE SERVICES",
-	"\t' Uncomment to exclude the entire infrastructure box",
-	"\t'!\\$NO_INFRA = \"\"",
-	"\t    ' Uncomment to exclude the API Endpoint/Proxy",
-	"\t    '!\\$NO_API = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the Admin UI (i.e. \"A Portal UI\")",
-	"\t    '!\\$NO_UI = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the infrastructure administrator",
-	"\t    '!\\$NO_ADMIN = \"\"",
-	"\t",
-	"\t",
-	"\t' CLUSTER COMPONENTS",
-	"\t' Uncomment to exclude the entire Cluster Services box",
-	"\t' !\\$NO_CLUSTER = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the Third Party Services",
-	"\t    '!\\$NO_TPS = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the Data Services",
-	"\t    '!\\$NO_DB = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the Certificate Services",
-	"\t    '!\\$NO_CS = \"\"",
-	"\t",
-	"\t    ' Uncomment to exclude the Web Application Services",
-	"\t    '!\\$NO_WEB = \"\"",
+			"\t' USERS",
+			"\t' Uncomment to exclude the entire set of \"actors\"",
+			"\t' !\\$NO_ACTORS = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the generic \"User\"",
+			"\t    '!\\$NO_USER = \"\"",
+			"\t",
+			"\t",
+			"\t' INFRASTRUCTURE SERVICES",
+			"\t' Uncomment to exclude the entire infrastructure box",
+			"\t'!\\$NO_INFRA = \"\"",
+			"\t    ' Uncomment to exclude the API Endpoint/Proxy",
+			"\t    '!\\$NO_API = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the Admin UI (i.e. \"A Portal UI\")",
+			"\t    '!\\$NO_UI = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the infrastructure administrator",
+			"\t    '!\\$NO_ADMIN = \"\"",
+			"\t",
+			"\t",
+			"\t' CLUSTER COMPONENTS",
+			"\t' Uncomment to exclude the entire Cluster Services box",
+			"\t' !\\$NO_CLUSTER = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the Third Party Services",
+			"\t    '!\\$NO_TPS = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the Data Services",
+			"\t    '!\\$NO_DB = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the Certificate Services",
+			"\t    '!\\$NO_CS = \"\"",
+			"\t",
+			"\t    ' Uncomment to exclude the Web Application Services",
+			"\t    '!\\$NO_WEB = \"\"",
 		]
 	},
 	// PLANTUML SNIPPETS: END

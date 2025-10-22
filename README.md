@@ -17,17 +17,22 @@ Click to englarge
 
 ### `core_functions`
 
-The `.iuml` files within this directory are not meant to be used directly. They contain templates to be used in other diagrams. The templates are meant to streamline management of reusable functionality, like a button press or a login sequence.
+The `.iuml` files within this directory are not meant to be used directly. The files are templates to be `i`ncluded in other `uml` diagrams. The templates are meant to streamline management of reusable functionality, like a button press or a login sequence.
 
 To use a template in your `.puml` diagram, refer to the full documentation on [Including Subpart](https://plantuml.com/preprocessing#98ecfc06b2af9277).
 
 ### `sprite`
 
-This directory is a dumping ground for sprites not normally included with the PlantUML jar bundled with the VS Code PlantUML extension.
+This directory is a dumping ground for sprites not normally included with the PlantUML JAR bundled with the VS Code PlantUML extension.
 
 ### `style`
 
 This directory contains predefined style sheets to make the diagrams not look so generic. These set default styles for colors and other things, like the resolution of the diagram (i.e. `dpi`) or the default fonts to use for various components.
+
+> <br/>
+>
+> _I'm slowly migrating some of the old-school `SkinParam` syntax over to the more modern `CSS`-style syntax._<br/>
+> <br/>
 
 ### `utils`
 
@@ -37,7 +42,9 @@ This directory contains a couple files that will pull all the other elements tog
 >
 > ### A Quick Note About Snippets
 > 
-> A custom set of snippets are defined in this project's snippets file. The file is located on the path `.vscode/plantuml.code-snippets`.
+> A custom set of snippets are defined in this project's snippets file. The file is located on the path `.vscode/plantuml.code-snippets`. When editing a PlantUML file, try typing `puml-` to see all the auto-complete options available to you. I tried to include clear descriptions for each of the snippets so you understand what you're getting. Also, in some of the _participant_-oriented snippets, I added some regex magic to ensure the piecs of the snippet which need to be uppercase/lowercase are indeed just that.
+> 
+> Honestly, I feel like snippets are a much better option than creating reusable functions. At least for my typical workflow it seems that way. I'm leaving the `functions.iuml` in here anyway. I'm hoping it serves as a good reference for someone else considering a custom function (or maybe just a good example of what _not_ to do).
 > 
 > <br/>
 
@@ -55,7 +62,7 @@ Include the `common.participants.iuml!MAIN` sub template in your own `_participa
 > <summary>Hint About Switches</summary>
 > <br/>
 > 
-> To make this easier to use, a custom _"snippet"_ was added. Simnply start typing out `puml-xf` before pressing `ENTER` to insert some boilerplate variables. It would be a good idea to keep this snippet up-to-date as teh project and team grows.
+> To make this easier to use, a custom _"snippet"_ was added. Simnply start typing out `puml-xf` before pressing `ENTER` to insert some boilerplate variables. It would be a good idea to keep this snippet up-to-date as both the project and team grow.
 > 
 > <br/>
 > </details>
@@ -109,6 +116,15 @@ Since we are only checking for the existance of a variable, the value doesn't ma
 > ```
 > 
 > </details>
+
+
+#### Pattern for Exclusion Variables
+
+If you try one the `puml-tp` snippet (for a `t`emplate `p`articipant), you'll notice it's wrapped in an `!if` statement. The statement checks whether or not a variable has been defined. Depending on the variable's existence, the participant is rendered in the diagram.
+
+To make this simpler, I have defined the same variable in the VS Code snippet in two places. The only difference is one of them is automatically convereted to `UPPERCASE` when you press `ENTER` to accept your entry.
+
+
 
 ### What to Include
 
