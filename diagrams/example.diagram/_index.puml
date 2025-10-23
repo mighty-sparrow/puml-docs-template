@@ -1,19 +1,22 @@
 ' The text after the `startuml` tag will be the name of the output file when rendered from the command-line.
 @startuml _index.
 title Display Title Here
-footer Rendered on %date("yyyy.MM.dd' at 'HH:mm")
+
+' ' Uncomment to see how to exclude an entire section of the code.
+' !$NO_TESTING=""
 
 !includesub ./_participants.iuml!COMMON_PARTICIPANTS
+
 !if %not(%variable_exists("$NO_TESTING"))
     actor testing as "<color:ffcc00><size:8>(testing)\nTesting\n<size:8>Just a test"
+
+    rnote over testing
+        <b><size:10>__One-Time Actors__</size></b>
+
+        Even after including actors or participants
+        from another file, you can create more.
+    end rnote
 !endif
-
-rnote over testing
-    <b><size:10>__One-Time Actors__</size></b>
-
-    Even after including actors or participants
-    from another file, you can create more.
-end rnote
 
 !includesub ../diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB_2
 !includesub ../diagrams/core_functions/demo.functions.here.iuml!DEMO_SUB

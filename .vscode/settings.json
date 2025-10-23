@@ -16,5 +16,5 @@
         "style",
         "utils",
     ],
-    "plantuml.render": "Local",
+    // "plantuml.render": "Local",
 }
