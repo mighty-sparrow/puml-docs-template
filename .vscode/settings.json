@@ -12,9 +12,10 @@
      */
     "plantuml.fileExtensions": ".wsd,.pu,.puml,.plantuml",
     "plantuml.includepaths": [
-        "sprites",
-        "style",
-        "utils",
+        "includes",
+        "includes/sprites",
+        "includes/style",
+        "includes/utils",
     ],
     // "plantuml.render": "Local",
 }

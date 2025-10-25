@@ -1,9 +1,9 @@
 @startuml Emoji Test
-emoji
+' emoji
 ' emoji 26
 ' emoji 27
 ' emoji 1f3
-' emoji 1f4
+emoji 1f4
 ' emoji 1f5
 ' emoji 1f6
 ' emoji 1f9

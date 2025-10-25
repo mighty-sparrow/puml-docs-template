@@ -145,7 +145,6 @@
 		"body":[
 			"@startuml Templates For Use In Other Diagrams - ${1:title}",
 			"title Templates For Use In Other Diagrams",
-			"footer Rendered on %date(\"yyyy.MM.dd' at 'HH:mm\")",
 			"$0",
 			"@enduml"
 		],
@@ -198,7 +197,6 @@
 			"' The text after the `startuml` tag will be the name of the output file when rendered from the command-line.",
 			"@startuml ${1:title}",
 			"title ${1:title}",
-			"footer Rendered on %date(\"yyyy.MM.dd' at 'HH:mm\")",
 			"",
 			"' While the `settings.json` file in this project defines paths to include ",
 			"' in this project, you may have to explicitly define the relative path if ",

@@ -1,0 +1,40 @@
+@startuml Templates For Use In Other Diagrams - COMPONENTS
+title Participants For Use In _index.puml
+
+!startsub COMMON_INCLUDES
+    !includesub common-header.iuml!MAIN
+    !includesub functions.iuml!MAIN
+!endsub
+
+!startsub COMMON_PARTICIPANTS
+    box Components #LightYellow
+    !if %not(%variable_exists("$NO_COMP_A"))
+        participant comp_a [
+            <color:LightGray><size:8>(""comp_a"")
+            <color:DarkGray><:worried:*.5>
+            Component 1
+            <size:8><color:Gray>(Some unique
+            <size:8><color:Gray>component)
+        ]
+    !endif
+    !if %not(%variable_exists("$NO_COMP_B"))
+        participant comp_b [
+            <color:LightGray><size:8>(""comp_b"")
+            <color:DarkGray><:smile:*.5>
+            Component 2
+            <size:8><color:Gray>(Some other
+            <size:8><color:Gray>unique component)
+        ]
+    !endif
+    !if %not(%variable_exists("$NO_COMP_C"))
+        participant comp_c [
+            <color:LightGray><size:8>(""comp_c"")
+            <color:DarkGray><:wink:*.5>
+            Component 3
+            <size:8><color:Gray>(A third unique)
+            <size:8><color:Gray>component)
+        ]
+    !endif
+    end box
+!endsub
+@enduml

@@ -1,0 +1,41 @@
+@startuml Templates For Use In Other Diagrams - COMPONENTS
+title Participants For Use In _index.puml
+
+!startsub COMMON_INCLUDES
+    !includesub common-header.iuml!MAIN
+    !includesub functions.iuml!MAIN
+!endsub
+
+!startsub COMMON_PARTICIPANTS
+    box Xtras %lighten("#LightBlue",20)
+        !if %not(%variable_exists("$NO_XTRA1"))
+            participant xtra1 [
+                <color:LightGray><size:8>(""xtra1"")
+                <color:DarkGray><:speaking_head:*.5>
+                Xtra 1
+                <size:8><color:Gray>(Something extra
+                <size:8><color:Gray>to include)
+            ]
+        !endif
+        !if %not(%variable_exists("$NO_XTRA2"))
+            participant xtra2 [
+                <color:LightGray><size:8>(""xtra2"")
+                <color:DarkGray><:dress:*.5>
+                Xtra 2
+                <size:8><color:Gray>(Something else
+                <size:8><color:Gray>to include)
+            ]
+        !endif
+        !if %not(%variable_exists("$NO_XTRA3"))
+            participant xtra3 [
+                <color:LightGray><size:8>(""xtra3"")
+                <color:DarkGray><:high_heel:*.5>
+                Xtra 3
+                <size:8><color:Gray>(Last extra
+                <size:8><color:Gray>to include)
+            ]
+        !endif
+        
+    end box
+!endsub
+@enduml

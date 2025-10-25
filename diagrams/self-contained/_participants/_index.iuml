@@ -1,0 +1,24 @@
+@startuml Templates For Use In Other Diagrams - Self-Contained
+title Participants For Use In _index.puml
+' Don't forget to add your Exclusion Flags for anything you do not need. (try the shortcut `puml-xf`)
+
+!startsub COMMON_INCLUDES
+    !includesub common-header.iuml!MAIN
+    !includesub functions.iuml!MAIN
+!endsub
+
+!startsub COMMON_PARTICIPANTS
+
+!if %not(%variable_exists("$NO_ACTORS"))
+    !includesub ./actors.iuml!COMMON_PARTICIPANTS
+!endif
+!if %not(%variable_exists("$NO_COMPONENTS"))
+    !includesub ./components.iuml!COMMON_PARTICIPANTS
+!endif
+!if %not(%variable_exists("$NO_XTRAS"))
+    !includesub ./xtras.iuml!COMMON_PARTICIPANTS
+!endif
+
+
+!endsub
+@enduml
