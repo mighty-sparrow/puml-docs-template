@@ -13,6 +13,7 @@
     "plantuml.fileExtensions": ".wsd,.pu,.puml,.plantuml",
     "plantuml.includepaths": [
         "includes",
+        "includes/utils",
         "includes/sprites",
         "includes/style",
         "includes/utils",

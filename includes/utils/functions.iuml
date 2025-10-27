@@ -16,13 +16,11 @@
 !include <tupadr3/material/info>
 !include <tupadr3/material/check_circle>
 
-' Helper function to format note text lines split by the tilde: '~'
-!function $colorSplitLines($txt="Default\nText",$color="")
-    !$splStr = "~"
-    !$list = %splitstr($txt, $splStr)
+' Helper function to format note text lines split by the new line character sequence: '\n'
+!function $colorSplitLines($txt="Default\nText",$color="DarkRed")
     !$retVal = ""
-    !foreach $item in $list
-    !$retVal = $retVal + "<font color="+$color+">"+$item+"</font>" + %newline()
+    !foreach $item in %splitstr_regex($txt, "\\n")
+        !$retVal = $retVal + "<font color="+$color+">"+$item+"</font>" + %newline()
     !endfor
     !return $retVal
 !endfunction

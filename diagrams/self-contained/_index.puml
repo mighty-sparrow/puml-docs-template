@@ -10,13 +10,20 @@ user o-->> comp_b:
 comp_b -->>o xtra3 ++ : 
 
 xtra3 --> comp_c :
-comp_c -->(30) comp_a -- : 30º Angle
+& comp_c -->>(30) comp_a ++ : 30º Angle
 
 comp_a -->> xtra3: Deactivated
 
 deactivate xtra3
+deactivate comp_a
 
 xtra3 o-->>o xtra2: 
 
 xtra2 o-->>x xtra1 : 
+
+note over user,comp_b
+    $colorSplitLines($txt="Example of modifying\nsome text with a custom Function.",$color="DarkRed")
+    $colorSplitLines($txt="\n\nThe fuction simply splits text\nacross\nmultiple lines.", $color="Blue")
+end note
+
 @enduml
